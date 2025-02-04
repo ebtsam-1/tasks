@@ -24,7 +24,7 @@ class TaskController extends Controller
         $paginate = $request->get('paginate', false);
         $status = $request->get('status', '*');
         $filters = ['status' => $status];
-      
+
         $records = $this->taskRepository->get($search, $filters, false,$paginate);
         return response()->json(['records' => TaskResource::collection($records)->resource]);
     }
@@ -38,7 +38,7 @@ class TaskController extends Controller
         $record = $this->taskRepository->store($data);
         return response()->json([
             'message' => 'Successfully created',
-            'record' => $record
+            'record' => TaskResource::make($record)
         ]);
     }
 
