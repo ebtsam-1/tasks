@@ -7,5 +7,5 @@ Installation Seps <br>
 5- then run  php artisan migrate --seed <br>
 then run php artisan serve <br>
 6- I have attached postman collection for the requested endpoints => Tasks.postman_collection.json, feel free to update the server link => to your server data <br>
-& check for tasks filterations in the params tab <br>
-7- I have created testing for two endpoints to check that please run php artisan test <br>
+7- after Login, I update the auth token variable to be the new token then please check for tasks filterations in the tasks index endpoint => you will find it in the params tab <br>
+8- I have created testing for two endpoints to check that please run php artisan test <br>
