@@ -7,4 +7,5 @@ Installation Seps <br>
 5- then run  php artisan migrate --seed <br>
 then run php artisan serve <br>
 6- I have attached postman collection for the requested endpoints => Tasks.postman_collection.json, feel free to update the server link => to your server data <br>
+& check for tasks filterations in the params tab <br>
 7- I have created testing for two endpoints to check that please run php artisan test <br>
