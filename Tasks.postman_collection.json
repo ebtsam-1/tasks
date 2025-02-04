@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "1993a6c2-44dd-4556-84e9-f160e1580071",
+		"_postman_id": "f4af5c93-9f6e-4cbf-9116-44f148c6f812",
 		"name": "Tasks Copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "19981198"
@@ -44,6 +44,16 @@
 				{
 					"name": "logout",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|HvtfK6JhAaQ8XIY0UtJITCVBdDsBvL6aSN4HmfIdbad7c6f3",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -269,7 +279,7 @@
 				"bearer": [
 					{
 						"key": "token",
-						"value": "3|nAriw7AprItbTSVw5vlh8il8lYhPpRqyG07DZtNW945be114",
+						"value": "4|HvtfK6JhAaQ8XIY0UtJITCVBdDsBvL6aSN4HmfIdbad7c6f3",
 						"type": "string"
 					}
 				]
