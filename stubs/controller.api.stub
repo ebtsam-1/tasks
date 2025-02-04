@@ -1,0 +1,64 @@
+<?php
+
+namespace {{ namespace }};
+
+use {{ rootNamespace }}Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+
+class {{ class }} extends Controller
+{
+    public function __construct(private TestRepository $testRepository)
+    {}
+    /**
+     * Display a listing of the resource.
+     */
+    public function index(Request $request)
+    {
+        $search = $request->get('id', false);
+        $records = $this->testRepository->get($search);
+
+        return response()->json(['records' => TestResource::collection($records)->resource]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(StoreTestRequest $request)
+    {
+        $data = $request->validated();
+        $record = $this->testRepository->store($data);
+        return response()->json([
+            'message' => 'Successfully created',
+            'record' => $record
+        ]);
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Test $test)
+    {
+        return response()->json(['record' => TestResource::make($test)]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(UpdateTestRequest $request, Test $test)
+    {
+        $data = $request->validated();
+        $this->testRepository->update($test->id,$data);
+
+        return response()->json(['message' => 'Successfully Updated']);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Test $test)
+    {
+        $this->testRepository->destroy($test);
+        return response()->json(['message' => 'Successfully deleted']);
+    }
+}
