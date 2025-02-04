@@ -11,6 +11,20 @@
 			"item": [
 				{
 					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if(pm.response.code == 200){\r",
+									"    pm.collectionVariables.set(\"auth_token\",pm.response.json().token)\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -49,7 +63,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "4|HvtfK6JhAaQ8XIY0UtJITCVBdDsBvL6aSN4HmfIdbad7c6f3",
+									"value": "{{auth_token}}",
 									"type": "string"
 								}
 							]
@@ -279,7 +293,7 @@
 				"bearer": [
 					{
 						"key": "token",
-						"value": "4|HvtfK6JhAaQ8XIY0UtJITCVBdDsBvL6aSN4HmfIdbad7c6f3",
+						"value": "{{auth_token}}",
 						"type": "string"
 					}
 				]
@@ -308,10 +322,37 @@
 			]
 		}
 	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
 	"variable": [
 		{
 			"key": "server",
 			"value": "http://127.0.0.1:8000/api"
+		},
+		{
+			"key": "auth_token",
+			"value": "",
+			"type": "string"
 		}
 	]
 }
